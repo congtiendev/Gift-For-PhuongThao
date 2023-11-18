@@ -5,13 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumping</title>
+    <title>
+        Cá nhảy =))))
+    </title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
     <script src="script.js" type="module"></script>
+    <style>
+        /* CSS để ẩn intro ban đầu */
+        #intro {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+         let firstSpacePress = true;
+
+// Hàm xử lý sự kiện khi phím được nhấn
+function handleKeyPress(event) {
+    // Kiểm tra xem phím nhấn có phải là phím cách không (keyCode 32)
+    if (event.keyCode === 32) {
+        // Nếu là lần đầu tiên nhấn phím cách, phát nhạc và đặt firstSpacePress thành false
+        if (firstSpacePress) {
+            playMusic();
+            firstSpacePress = false;
+        }
+    }
+}
+
+// Hàm phát nhạc
+function playMusic() {
+    // Thêm logic phát nhạc ở đây, có thể sử dụng Audio API hoặc bất kỳ thư viện nào bạn muốn
+    // Ví dụ sử dụng Audio API:
+    var audio = new Audio('./nhacnen.mp3');
+    audio.play();
+}
+
+// Bắt sự kiện khi phím được nhấn
+document.addEventListener('keydown', handleKeyPress);
+var userAnswer = prompt("Chào mưng đến với tựa Game Cá nhảy ,nhập sinh nhật của Tiến để chơi <3 (d-m-yyyy)");
+    if (userAnswer && userAnswer.toLowerCase() === '7-2-2003') {
+        alert('Tốt lắm, mãi bên nhau bạn nhớ <33333');
+    } else {
+        alert('Hừm sai ùi, là 7-2-2003 nhé :(');
+    }
+      </script>
+      
 </head>
 
-<body>
-
+<body>  
     <div class="world" data-world>
         <div class="score" data-score>0</div>
         <div class="start-screen" data-start-screen>Bấm phím cách để chơi :v</div>
@@ -19,6 +63,13 @@
         <img src="imgs/ground.png" class="ground" data-ground>
         <img src="imgs/dino-stationary.png" class="dino" data-dino>
     </div>
+
+    <!-- HTML cho phần intro -->
+
+
+<!-- Nội dung chính của trang web ở đây -->
+
+    
 </body>
 
 </html>
